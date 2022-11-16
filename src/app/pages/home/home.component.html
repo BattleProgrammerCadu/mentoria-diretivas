@@ -1,1 +1,27 @@
-<p>home works!</p>
+<section>
+    <div *ngIf="clientes.length == 0" class="alert alert-primary" role="alert">
+        This is a primary alert—check it out!
+    </div>
+    <table *ngIf="clientes.length > 0" class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Data</th>
+            <th scope="col">Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <th scope="row">{{cliente.id}}</th>
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.cpf | formataCpf}}</td>
+            <td>{{cliente.telefone | formataTelefone}}</td>
+            <td>{{cliente.data | date: 'dd/MM/yyyy'}}</td>
+            <td>{{cliente.valor | currency}} </td>
+          </tr>
+        </tbody>
+    </table>
+</section>
